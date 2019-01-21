@@ -1,0 +1,21 @@
+Inatslled at /usr/share/elasticsearch
+Config file at /etc/elasticsearch
+init script at /etc/init.d/elasticsearch
+
+설치 dpkg -i elasticsearch-5.1.1 deb
+
+sudo systemctl enable elasticsearch.service
+
+elasticsearch start : sudo service elasticsearch start
+elasticsearch stop : sudo service elasticsearch stop
+elasticsearch status 확인   : curl -XGET 'localhost:9200'
+
+index 조회  : curl -XGET http://localhost:9200/classes
+index 조회(Json 정리된 형태)  : curl -XGET http://localhost:9200/classes?pretty
+index 생성 : curl -XPUT http://localhost:9200/classes
+index 삭제 : curl -XDELETE http://localhost:9200/classes
+
+document 생성 : curl -XGET http://localhost:9200/classes/1/ -d'
+{"title":"Algotiyhm", "proferssor":"John"}'
+document를 화일로 실행할 때
+curl -XGET http://localhost:9200/classes/1/ -d@oneclass.json
